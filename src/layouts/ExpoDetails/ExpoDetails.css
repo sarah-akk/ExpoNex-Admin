@@ -1,0 +1,51 @@
+.expo-details {
+    margin: 2rem;
+    height: 44.5rem;
+    width: 87rem;
+    background-color: #313131;
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    gap: 3rem;
+}
+
+.expo-details-nav {
+    margin-top: 1rem;
+    justify-content: space-around;
+  }
+  
+  .back-button {
+    border: none;
+    padding:10px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color: #f5d57f;
+  }
+  
+  .back-button:hover {
+    background-color: #8a8c8d;
+    border-radius: 50px;
+  }
+  
+  .expo-details-nav a {
+    
+    text-decoration:none;
+    color: #f5a938;
+    font-weight: bold;
+    margin: 40px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #636262;
+    transition: background-color 0.3s;
+  }
+  
+  .expo-details-nav a:hover {
+    background-color: #e7e7e7;
+  }
+  
+  .active {
+}
+  .expo-details-content {
+    padding: 20px;
+  }

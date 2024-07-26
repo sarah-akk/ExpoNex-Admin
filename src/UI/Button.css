@@ -1,0 +1,33 @@
+
+.custom_button {
+    width: 5rem;
+    font: inherit;
+    cursor: pointer;
+    background-color: #be5f2c;
+    border: 1px solid #be5f2c;
+    color: #1f1a09;
+    padding: 0.5rem 1.5rem;
+    border-radius: 15px;
+  }
+  
+  .custom_button:hover,
+  .custom_button:active {
+    background-color: #ca8722;
+    box-shadow: 0 1px 6px rgba(245, 196, 38, 0.959);
+    border-color: #ca8722;
+    color: #1f1a09;
+  }
+  
+  .text-button {
+    font: inherit;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #ffc404;
+  }
+  
+  .text-button:hover,
+  .text-button:active {
+    color: #ffab04;
+  }
+  

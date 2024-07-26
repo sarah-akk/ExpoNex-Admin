@@ -1,0 +1,36 @@
+
+  .sections-map-container {
+
+   margin-top: 7rem;
+   transform: translate(-10rem);  
+
+ }
+ 
+ .expo-sections{
+   margin-left: 6rem ;
+   display: flex;
+
+ }
+
+ .interactive-map rect {
+   cursor: pointer;
+   transition: fill 0.3s;
+ }
+
+ .sections-info {
+   display: flex;
+   justify-content: space-between;
+   flex-direction: column;
+ }
+
+ .sections-info-item{
+   padding: 20px;
+   margin-top: 5rem;
+   width: 16rem;
+   border-radius: 20px;
+   font-weight: 900;
+   font-size: medium;
+   color:rgb(87, 73, 43);
+   background-image: linear-gradient(#FE8260 , #ffc054);
+   
+ }

@@ -1,0 +1,39 @@
+.uploadDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 15rem;
+    margin-top: 1rem;
+    background-color: #313131;
+    border-radius: 1rem;
+}
+
+.upload{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 7rem;
+    width: 7rem;
+    background-color: #D97136;
+    border-radius: 10rem;
+}
+
+.upload img{
+color: aliceblue;
+width: 2rem;
+}
+
+.uploadText{
+    color: white;
+    display: flex;
+    font-weight: bold;
+    font-size: large;
+}
+
+.upload:hover {
+  background-color: #e68638;
+
+}

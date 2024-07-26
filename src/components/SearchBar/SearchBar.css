@@ -1,0 +1,35 @@
+
+.upBar{
+    display: flex;
+    flex-direction: row;
+    width: 68rem;
+}
+
+.SearchBar{
+    margin-left: 2rem;
+    height: 3.5rem;
+    width: 46.5rem;
+    border-radius: 15px;
+    background-color: #313131;
+    justify-content: start;
+    display: flex;  
+    align-items: center;
+    color: beige;
+    font-size: medium;
+    font-weight: bold;
+}
+.search-icon{
+  margin: 1rem;
+}
+
+.notification{
+    display: flex;
+    margin-left: 2rem;
+    height: 3.5rem;
+    border-radius: 15px;
+    width: 10%;
+    background-color: #313131;
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+}

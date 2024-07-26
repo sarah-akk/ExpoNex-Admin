@@ -1,0 +1,62 @@
+<!-- Example of sectionsMap.svg with CSS variables, scaled down -->
+<svg width="550" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Row 1 -->
+  <rect id="section1" x="5" y="5" width="50" height="50" fill="var(--section1-fill, lightgray)" />
+  <rect id="section2" x="60" y="5" width="50" height="50" fill="var(--section2-fill, lightgray)" />
+  <rect id="section3" x="115" y="5" width="50" height="50" fill="var(--section3-fill, lightgray)" />
+  <rect id="section4" x="170" y="5" width="50" height="50" fill="var(--section4-fill, lightgray)" />
+  <rect id="section5" x="225" y="5" width="50" height="50" fill="var(--section5-fill, lightgray)" />
+  <rect id="section6" x="280" y="5" width="50" height="50" fill="var(--section6-fill, lightgray)" />
+  <rect id="section7" x="335" y="5" width="50" height="50" fill="var(--section7-fill, lightgray)" />
+  <rect id="section8" x="390" y="5" width="50" height="50" fill="var(--section8-fill, lightgray)" />
+  <rect id="section9" x="445" y="5" width="50" height="50" fill="var(--section9-fill, lightgray)" />
+  <rect id="section10" x="500" y="5" width="50" height="50" fill="var(--section10-fill, lightgray)" />
+
+  <!-- Row 2 -->
+  <rect id="section11" x="5" y="60" width="50" height="50" fill="var(--section11-fill, lightgray)" />
+  <rect id="section12" x="60" y="60" width="50" height="50" fill="var(--section12-fill, lightgray)" />
+  <rect id="section13" x="115" y="60" width="50" height="50" fill="var(--section13-fill, lightgray)" />
+  <rect id="section14" x="170" y="60" width="50" height="50" fill="var(--section14-fill, lightgray)" />
+  <rect id="section15" x="225" y="60" width="50" height="50" fill="var(--section15-fill, lightgray)" />
+  <rect id="section16" x="280" y="60" width="50" height="50" fill="var(--section16-fill, lightgray)" />
+  <rect id="section17" x="335" y="60" width="50" height="50" fill="var(--section17-fill, lightgray)" />
+  <rect id="section18" x="390" y="60" width="50" height="50" fill="var(--section18-fill, lightgray)" />
+  <rect id="section19" x="445" y="60" width="50" height="50" fill="var(--section19-fill, lightgray)" />
+  <rect id="section20" x="500" y="60" width="50" height="50" fill="var(--section20-fill, lightgray)" />
+
+  <!-- Row 3 -->
+  <rect id="section21" x="5" y="115" width="50" height="50" fill="var(--section21-fill, lightgray)" />
+  <rect id="section22" x="60" y="115" width="50" height="50" fill="var(--section22-fill, lightgray)" />
+  <rect id="section23" x="115" y="115" width="50" height="50" fill="var(--section23-fill, lightgray)" />
+  <rect id="section24" x="170" y="115" width="50" height="50" fill="var(--section24-fill, lightgray)" />
+  <rect id="section25" x="225" y="115" width="50" height="50" fill="var(--section25-fill, lightgray)" />
+  <rect id="section26" x="280" y="115" width="50" height="50" fill="var(--section26-fill, lightgray)" />
+  <rect id="section27" x="335" y="115" width="50" height="50" fill="var(--section27-fill, lightgray)" />
+  <rect id="section28" x="390" y="115" width="50" height="50" fill="var(--section28-fill, lightgray)" />
+  <rect id="section29" x="445" y="115" width="50" height="50" fill="var(--section29-fill, lightgray)" />
+  <rect id="section30" x="500" y="115" width="50" height="50" fill="var(--section30-fill, lightgray)" />
+
+  <!-- Row 4 -->
+  <rect id="section31" x="5" y="170" width="50" height="50" fill="var(--section31-fill, lightgray)" />
+  <rect id="section32" x="60" y="170" width="50" height="50" fill="var(--section32-fill, lightgray)" />
+  <rect id="section33" x="115" y="170" width="50" height="50" fill="var(--section33-fill, lightgray)" />
+  <rect id="section34" x="170" y="170" width="50" height="50" fill="var(--section34-fill, lightgray)" />
+  <rect id="section35" x="225" y="170" width="50" height="50" fill="var(--section35-fill, lightgray)" />
+  <rect id="section36" x="280" y="170" width="50" height="50" fill="var(--section36-fill, lightgray)" />
+  <rect id="section37" x="335" y="170" width="50" height="50" fill="var(--section37-fill, lightgray)" />
+  <rect id="section38" x="390" y="170" width="50" height="50" fill="var(--section38-fill, lightgray)" />
+  <rect id="section39" x="445" y="170" width="50" height="50" fill="var(--section39-fill, lightgray)" />
+  <rect id="section40" x="500" y="170" width="50" height="50" fill="var(--section40-fill, lightgray)" />
+
+  <!-- Row 5 -->
+  <rect id="section41" x="5" y="225" width="50" height="50" fill="var(--section41-fill, lightgray)" />
+  <rect id="section42" x="60" y="225" width="50" height="50" fill="var(--section42-fill, lightgray)" />
+  <rect id="section43" x="115" y="225" width="50" height="50" fill="var(--section43-fill, lightgray)" />
+  <rect id="section44" x="170" y="225" width="50" height="50" fill="var(--section44-fill, lightgray)" />
+  <rect id="section45" x="225" y="225" width="50" height="50" fill="var(--section45-fill, lightgray)" />
+  <rect id="section46" x="280" y="225" width="50" height="50" fill="var(--section46-fill, lightgray)" />
+  <rect id="section47" x="335" y="225" width="50" height="50" fill="var(--section47-fill, lightgray)" />
+  <rect id="section48" x="390" y="225" width="50" height="50" fill="var(--section48-fill, lightgray)" />
+  <rect id="section49" x="445" y="225" width="50" height="50" fill="var(--section49-fill, lightgray)" />
+  <rect id="section50" x="500" y="225" width="50" height="50" fill="var(--section50-fill, lightgray)" />
+</svg>

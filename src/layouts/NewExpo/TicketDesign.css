@@ -1,0 +1,122 @@
+.TicketDesign {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  height: 44.5rem;
+  width: 87rem;
+  background-color: #313131;
+  border-radius: 20px;
+}
+
+.expoForm2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 82%;
+  height: 38rem;
+  padding: 20px;
+  background-color: #525151;
+  color: #8b8b87;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.ticket {
+  display: flex;
+  height: 40rem;
+  width: 60rem;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.ticket-image-container {
+  position: relative;
+  width: 35%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.ticket-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: nwse-resize;
+}
+
+.ticket-image img {
+  width: 100%;
+  height: 40%;
+  object-fit: cover;
+}
+
+.image-picker {
+  width: 14rem;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.ticket-details {
+  width: 40%;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ticket-barcode {
+  margin-top: 5rem;
+  height: 50%;
+  transform: rotateZ(90deg);
+  align-items: center;
+  justify-content: center;
+}
+
+
+.ticket-barcode-img{
+  align-items: center;
+  justify-content: center;
+  margin-left: 5rem;
+   width: 10rem;
+}
+
+.background-options {
+  margin-top: 20px;
+}
+
+.ticket-divider {
+  width: 1px;
+  padding: 2;
+  background: none;
+  border-left: 1px dotted #000; 
+  height: 100%; 
+}
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.previousButton, .NextButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-image: linear-gradient(#e48125, #eb984b);
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.previousButton:hover, .NextButton:hover {
+  background-image: linear-gradient(#e48125, #ebc64b);
+  box-shadow: 0 0 3px #f7eb4f;
+}

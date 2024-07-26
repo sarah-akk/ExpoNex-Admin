@@ -1,0 +1,49 @@
+.body {
+    width: 100%;
+  }
+  
+  .ExposBG {
+    margin: 2rem;
+    height: 44.5rem;
+    width: 87rem;
+    background-color: #313131;
+    border-radius: 20px;
+    overflow: auto;
+  }
+  
+  .ExposBG::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .ExposBG::-webkit-scrollbar-track {
+    background: #2a2a2a; 
+    border-radius: 10px;
+  }
+  
+  .ExposBG::-webkit-scrollbar-thumb {
+    background-color: #ce7731; 
+    border-radius: 10px;
+    border: 3px solid #2a2a2a;
+  }
+  
+  .ExposBG::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  
+  #Expos {
+    width: 90%;
+    max-width: 70rem;
+    list-style: none;
+    margin-left: 10rem ;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 2rem;
+  }
+  
+  .ExposTitle {
+    color: aliceblue;
+    font-size: 25px;
+    margin: 1.5rem;
+  }
+  

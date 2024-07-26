@@ -1,0 +1,96 @@
+.expo-details-div {
+   display: grid;
+   margin-top: 1rem;
+   grid-template-columns: 25rem auto;
+   margin-left: 10%;
+   
+}
+
+.expo-details h2{
+    color: #EFB359;
+}
+
+.expo-details-info{
+    margin-top: 3.5rem;
+    flex-direction: column;
+    display: flex;
+
+}
+
+.expo-details-image {
+    width: 20rem;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 5rem;
+}
+
+.expo-details h2 {
+    margin-top: 0.5rem;
+}
+
+.expo-details p {
+    margin: 0.2rem;
+}
+
+ .status{
+    color: rgb(53, 207, 53);
+}
+
+
+.expo-details-categories {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    }
+    
+    .expo-details-categories h3 {
+    margin-bottom: 5px;
+    }
+    
+    .expo-details-categories ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    }
+    
+    .expo-details-categories li {
+    text-align: center;
+    width: fit-content;
+    border-color: blueviolet;
+    color: rgb(197, 245, 87);
+    background-color: #888585;
+    padding: 5px 10px;
+    margin-bottom: 2px;
+    border-radius: 20px;
+    box-shadow: 0 4px 5px rgba(38, 36, 49, 0.685); 
+    }
+    
+
+    .expo-details-sections {
+        width: 25rem;
+        max-width: 600px;
+        height: 15rem;
+        border-radius: 10px;
+    }
+    
+
+    .expo-location-image{
+        width: 20rem;
+        max-width: 600px;
+        height: auto;
+        border-radius: 2px;
+    }
+
+    .expo-location-icon{
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .expo-location-div{
+        margin-top: 5rem;
+        display: flex;
+        gap: 1rem;
+    }

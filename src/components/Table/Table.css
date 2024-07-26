@@ -1,0 +1,80 @@
+/* Base styles for the Table */
+.MuiTableRow-root > * {
+}
+
+.MuiTableRow-root.MuiTableRow-head > * {
+  font-weight: bold !important;
+}
+
+.Table {
+  display: flex;
+  padding: 10px;
+  color: #f0ca4c;
+  background-color: #313131;
+  border-radius: 10px;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  height: 14.5rem;
+  width: 64rem;
+  overflow: auto;
+}
+
+.Table td, th {
+  border: none !important;
+  background-color: #313131;
+}
+
+.TableCell {
+  color: #fffefe;
+}
+
+.Table:first-child {
+  border-radius: 0.7rem !important;
+}
+
+.status {
+  padding: 15px;
+  border-radius: 9px;
+}
+
+.Details {
+  color: #ffffff !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .Table {
+    height: 200%;
+    margin-top: 2rem;
+    flex-direction: column;
+    position: fixed;
+    width: 60.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Table {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.mini_Table::-webkit-scrollbar {
+  width: 12px;
+}
+
+.mini_Table::-webkit-scrollbar-track {
+  background: #2a2a2a; 
+    border-radius: 10px;
+}
+
+.mini_Table::-webkit-scrollbar-thumb {
+  background-color: #ce7731; 
+  border-radius: 10px;
+  border: 3px solid #2a2a2a;
+}
+
+.mini_Table::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

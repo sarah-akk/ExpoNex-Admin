@@ -1,0 +1,65 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    height: 38rem;
+    width: 22rem;
+    background-color: #313131;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    color: aliceblue;
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    width: 8rem;
+    height: 7rem;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.avatar img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.Name {
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.Tabs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    width: 100%;
+    align-items: center;
+}
+
+.Line {
+    height: 0.1rem;
+    width: 9rem;
+    background-color: aliceblue;
+    margin-top: 2rem;
+}
+.About {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .About h2 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  
+  .About p {
+    font-size: 14px;
+  }
+  

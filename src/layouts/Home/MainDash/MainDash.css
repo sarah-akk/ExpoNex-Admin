@@ -1,0 +1,19 @@
+.Cards{
+    flex-direction: row;
+    display:inline-flex;
+    padding: 2rem;
+}
+
+.parentContainer{
+    flex-direction: row;
+    width: 100%;
+}
+
+.parentContainer:not(:first-child) {
+    margin-left: 30px; 
+    }
+
+.charts{
+    flex-direction: row;
+    display:inline-flex;
+}

@@ -1,24 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider, Navigate, createBrowserRouter } from "react-router-dom";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "../src/util/http";
+import "../src/layouts/authentication/sign-in.css";
+import Dashboard from "./layouts/dashBoard/dashboard.jsx";
+import SignIn from "./layouts/authentication/sign-in";
+import StartPage from "./layouts/startPage/StartPage";
+import "./index.css";
+import Home from "./layouts/Home/Home";
+import { ThemeProvider } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import Expos from "./layouts/Expos/Expos.jsx";
+import ExpoDetails from "./layouts/ExpoDetails/ExpoDetails.jsx";
+import Details from "./layouts/ExpoDetails/Details/Details.jsx"
+import Sections from "./layouts/ExpoDetails/sections/Sections.jsx";
+import Analytics from "./layouts/ExpoDetails/analytics/Analytics.jsx";
+import NewExpo from "./layouts/NewExpo/NewExpo.jsx";
+import TicketDesign from "./layouts/NewExpo/TicketDesign.jsx";
+import DesignScreen from "./layouts/NewExpo/DesignScreen.jsx";
+import Map from "./layouts/NewExpo/Map.jsx";
+
+
+
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/startPage/StartPage" />,
+  },
+  {
+    path: "/startPage/StartPage",
+    element: <StartPage />,
+  },
+  {
+    path: "/authentication/sign-in",
+    element: <SignIn />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      { path: "/dashboard/Home", element: <Home /> },
+      { path: "/dashboard/Activity", element: <Expos /> },
+      { path: "/dashboard/Activity/:id", element: <ExpoDetails />, children: [
+        { path: "details", element: <Details /> },
+        { path: "sections", element: <Sections /> },
+        { path: "analytics", element: <Analytics /> },
+      ] },
+      { path: "/dashboard/NewExpo", element: <NewExpo/> },
+      { path: "/dashboard/NewExpo/Map", element: <Map/> },
+      { path: "/dashboard/NewExpo/ticket-design", element: <TicketDesign/> },
+      { path: "/dashboard/NewExpo/design-Screen", element: <DesignScreen/> },
+    ],
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }
 

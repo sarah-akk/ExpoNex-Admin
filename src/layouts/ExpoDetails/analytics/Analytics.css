@@ -1,0 +1,24 @@
+.Analytics-div{
+    display: grid;
+    margin-top: 1rem;
+    grid-template-columns: 60rem auto;
+}
+
+.Analytics-Cards{
+    flex-direction: column;
+    display: flex;
+}
+.Analytics-Charts{
+    flex-direction: row;
+    display: flex;
+    margin: 2rem;
+}
+
+.Analytics-LineChart{
+    margin-left: 2rem;
+    padding: 1rem;
+    background-color: #4d4c4c;
+    width: 31.2rem;
+    height: 20rem;
+    border-radius: 1rem;
+}

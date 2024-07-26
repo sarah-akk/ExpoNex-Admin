@@ -1,0 +1,12 @@
+.body{
+}
+
+.AppGlass{
+    display: grid;
+    margin: 2rem;
+    height: 97%;
+    width: 97%;
+    border-radius: 2rem;
+    overflow: hidden;
+    grid-template-columns: 18rem auto;
+    }
