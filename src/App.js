@@ -20,6 +20,7 @@ import TicketDesign from "./layouts/NewExpo/TicketDesign.jsx";
 import DesignScreen from "./layouts/NewExpo/DesignScreen.jsx";
 import Map from "./layouts/NewExpo/Map.jsx";
 import LogOut from "./layouts/LogOut/LogOut.jsx";
+import CompanyDetails from "./layouts/notifications/CompanyDetails.jsx";
 
 
 
@@ -49,8 +50,9 @@ const router = createBrowserRouter([
         { path: "details", element: <Details /> },
         { path: "sections", element: <Sections /> },
         { path: "analytics", element: <Analytics /> },
-      ] },
+      ] }, 
       { path: "/dashboard/Notifications", element: <Notifications/> },
+      { path: "/dashboard/Notifications/:id", element: <CompanyDetails/> },
       { path: "/dashboard/NewExpo", element: <NewExpo/> },
       { path: "/dashboard/NewExpo/Map", element: <Map/> },
       { path: "/dashboard/NewExpo/ticket-design", element: <TicketDesign/> },

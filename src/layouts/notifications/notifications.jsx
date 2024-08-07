@@ -1,5 +1,5 @@
 // src/components/Notifications.js
-import React, { useState } from 'react';
+import React, { useState  } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -16,11 +16,15 @@ import './notifications.css';
 import { useAuth } from '../../context/AuthContext';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+import { useNavigate } from 'react-router-dom';
 
 const Notifications = () => {
   const { user } = useAuth();
   const [tab, setTab] = useState('all');
-
+  const navigate = useNavigate()
+  
   const { data, isLoading, isError, error } = useQuery({
     queryKey: [tab, user.accessToken],
     queryFn: () => {
@@ -38,7 +42,11 @@ const Notifications = () => {
   };
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+        <CircularProgress />
+      </Box>
+    );
   }
 
   if (isError) {
@@ -65,6 +73,7 @@ const Notifications = () => {
                       <TableCell>Owner</TableCell>
                       <TableCell>Avatar</TableCell>
                       <TableCell>Status</TableCell>
+                      <TableCell>Details</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -77,6 +86,9 @@ const Notifications = () => {
                         </TableCell>
                         <TableCell className={`status-${company.is_verified ? 'verified' : 'pending'}`}>
                           {company.is_verified ? 'Verified' : 'Pending'}
+                        </TableCell>
+                        <TableCell>
+                          <button onClick={()=>navigate(`/dashboard/Notifications/${company.id}`)}>Details</button>        
                         </TableCell>
                       </TableRow>
                     ))}
