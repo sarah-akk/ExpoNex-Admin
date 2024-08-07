@@ -2,14 +2,19 @@ import React from 'react';
 import "./Profile.css";
 import avatar from "../../assets/images/avatar.png";
 import ProfileTabs from "../ProfileTabs/ProfileTabs.jsx";
+import { useAuth } from "../../context/AuthContext.js";
 
 const Profile = () => {
+
+  const { user } = useAuth();
+
+  
   return (
     <div className='profile'>
       <div className='avatar'>
         <img src={avatar} alt="avatar" />
-        <p className='Name'>sara akkad</p>
-        <span>bussiness women</span>
+        <p className='Name'>{user.username}</p>
+        <span>{user.email}</span>
       </div>
       <div className='Tabs'>
         <ProfileTabs /> 
@@ -17,7 +22,7 @@ const Profile = () => {
       <div className='Line'></div>
       <div className='About'>
         <h2>About </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget mauris eu augue dictum fringilla non ac nulla.</p>
+        <p>An all-in-one solution for managing and organizing exhibitions, from booth allocation to visitor management and real-time analytics.</p>
       </div>
     </div>
   );

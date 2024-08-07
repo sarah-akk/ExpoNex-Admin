@@ -1,5 +1,5 @@
 export function isEmail(value) {
-  return value.includes("@");
+  return value.trim() !== "";
 }
 
 export function isNotEmpty(value) {

@@ -1,0 +1,96 @@
+/* Notification table container */
+.notification-table-container {
+    width: 75%;
+    margin: 2rem ;
+    margin-top: 8rem;
+    margin-left: 5rem;
+    position:absolute;
+
+  }
+
+  .notification-head {
+    border-radius: 5px;
+    box-shadow: 0 3px 3px rgba(137, 137, 139, 0.685); 
+    position: absolute;
+    margin-top: 4.3rem;
+    margin-left: 5.5rem;
+    width: 74%;
+    height: 4rem;
+    background-image:linear-gradient(#f0e692,#e4a96b) ;
+    font-family: 'Courier New', Courier, monospace ;
+    font-size: large;
+    font-weight: bold;
+    color: rgb(48, 47, 47);
+    padding-left: 20px;
+  }
+  
+  /* Table styling */
+  .notification-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 45px;
+  }
+  
+  /* Table header */
+  .notification-table thead th {
+    height: 6rem;
+    background-color: #f0f0f0;
+    border-bottom: 2px solid #ddd;
+    color: #d67922;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  /* Table body */
+  .notification-table tbody td {
+    padding: 12px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    color: #555;
+
+  }
+  
+  /* Avatar styling */
+  .notification-table .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+  
+  /* Status column styling */
+  .notification-table .status {
+    font-weight: bold;
+  }
+  
+  /* Pending status */
+  .notification-table .status-pending {
+    font-weight: bold;
+    color: #a72727e1; /* red */
+  }
+  
+  /* Approved status */
+  .notification-table .status-approved {
+    color: #31a131; /* green */
+    font-weight: bold;
+  }
+  
+  /* PDF link styling */
+  .notification-table .pdf {
+    color: #422888;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .notification-table .pdf:hover {
+    color: #201b3f;
+  }
+  
+  /* Hover effect */
+  .notification-table tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+  

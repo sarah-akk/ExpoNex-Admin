@@ -6,13 +6,14 @@ import ribbon from "../../assets/images/ribbon.png";
 import logo from "../../assets/logos/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { loginUser } from "../../util/http";
+import { loginUser } from "../../util/AuthHttp";
 import ErrorBlock from "../../UI/ErrorBlock";
 import LoadingIndicator from "../../UI/loadingIndicator";
 import { useAuth } from "../../context/AuthContext";
 
 
 export default function SignIn() {
+
   const { login } = useAuth();
   const navigate = useNavigate();
   const {
@@ -34,10 +35,11 @@ export default function SignIn() {
   const [loginError, setLoginError] = useState(false); 
 
   const { mutate, isSuccess, isPending } = useMutation({
+    
     mutationFn: loginUser,
   
     onSuccess: (data) => {
-      const { success, user } = data;
+      const { success , user } = data;
       if (success) {
         console.log(user);
         login(user);
@@ -46,7 +48,7 @@ export default function SignIn() {
         setLoginError(true);
         console.log("Login failed");
       }
-    },
+    },  
   });  
 
   const handleLogin = async (event) => {
@@ -55,7 +57,6 @@ export default function SignIn() {
       return;
     }
     mutate({ emailValue, passwordValue });
-    navigate("/dashboard/Home");
     console.log(loginError);
   };
 
@@ -75,18 +76,18 @@ export default function SignIn() {
       <div className="cartDiv">
         Login
       </div>
-<div class="card-body">
-<div class="row justify-content-center">
-<div class="col-lg-8">
-<h2 class="fw-bold mb-5">LOGIN</h2>
-<form onSubmit={handleLogin}>
-<div class="form-outline mb-4">
-<div className="control-row">
+        <div class="card-body">
+        <div class="row justify-content-center">
+        <div class="col-lg-8">
+         <h2 class="fw-bold mb-5">LOGIN</h2>
+         <form onSubmit={handleLogin}>
+         <div class="form-outline mb-4">
+         <div className="control-row">
           <Input
-            label="email"
-            id="email"
-            type="email"
-            name="email"
+            label="username"    
+            id="username"        
+            type="text"          
+            name="username" 
             onBlur={handleEmailBlur}
             value={emailValue}
             onChange={(event) => {
@@ -112,24 +113,22 @@ export default function SignIn() {
           />
         </div>
         </div>
-<button type="submit" class="button">
-Sign in
-</button>
-<div class="col-lg-8 mt-3">
-<p><a href="/change-password.html">Change your password?</a></p>
-</div>
-</form>
-</div>
-</div>
-</div>
-</section>
-     
+        <button type="submit" class="button">
+        Sign in
+        </button>
+       <div class="col-lg-8 mt-3">
+      <p><a href="/change-password.html">Change your password?</a></p>
       {loginError && !isPending && (
-        <ErrorBlock
-          title="Login Failed"
-          message="Invalid email or password."
-        />
+        <p className="validationText"> Invalid email or password !</p>
       )}
+      </div>
+     </form>
+     </div>
+     </div>
+     </div>
+     </section>
+     
+    
       {isPending && <LoadingIndicator />}
       <img src={ribbon} alt="Your Image" className="ribbon" />
     </>

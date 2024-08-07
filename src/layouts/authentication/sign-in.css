@@ -23,7 +23,7 @@ body {
     bottom: -10rem;
     right: 0;
     z-index: 1; 
-    width: 114rem; 
+    width:120rem; 
     height: 25rem;
   }
 
@@ -52,7 +52,7 @@ body {
   margin-top: 8rem;
   margin-left: 40.5rem;
   width:30rem;
-  height: 30rem;
+  height: 32rem;
   background: #f8f7eed7;
   border-radius: 20px; 
   }
@@ -157,7 +157,12 @@ fieldset {
   display: flex;
   gap: 1rem;
 }
-  
+  .validationText{
+    color: #ad0808;
+    font-size: large;
+    font-weight: bold;
+  }
+
   .button{
     padding: 0.5rem 1rem;
     width: 9rem;
@@ -185,6 +190,8 @@ fieldset {
   background-color: transparent;
   color: #869999;
 }
+
+
   a {
   color: #c96e31;
   text-decoration: none;

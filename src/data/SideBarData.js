@@ -22,8 +22,8 @@ import {
     },
     {
       icon: UilUsersAlt,
-      heading: "notifications",
-      link: "/dashboard/notifications",
+      heading: "Companies",
+      link: "/dashboard/Notifications",
     },
     {
       icon: UilUsersAlt,
