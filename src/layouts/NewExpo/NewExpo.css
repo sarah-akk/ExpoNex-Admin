@@ -13,7 +13,7 @@
     display: flex;
     justify-content: space-between;
     width: 82%;
-    height: 38rem;
+    height: 42  rem;
     padding: 20px;
     background-color: #525151 ;
     color: #d8d8c4;
@@ -80,6 +80,22 @@
     font-size: large;
     box-sizing: border-box;
   }
+
+  input::placeholder {
+    color: #100c0c69; 
+    font-style: italic; 
+    font-size: 0.875rem;
+    opacity: 1;
+  }
+
+  textarea::placeholder {
+    color: #100c0c69; 
+    font-style: italic; 
+    font-size: 0.875rem;
+    opacity: 1;
+  }
+
+
   .expoSelect {
     margin-left: 10px;
     padding: 5px;
@@ -145,7 +161,6 @@
     font-weight: bold;
     border: none;
     border-radius: 10px;
-    margin-top: 2.5rem;
     cursor: pointer;
     font-size: 16px;
   }

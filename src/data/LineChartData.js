@@ -5,11 +5,11 @@ export const data = {
       data: [10, 50, 30, 90, 40, 120, 100],
     },
   ],
-  options: {  
+  options: {
     chart: {
       type: "area",
-      height: "7rem",
-      padding : "1rem"
+      height: "6rem",
+      padding: "2rem"
     },
     fill: {
       colors: ["#F49866"],

@@ -9,6 +9,18 @@
     border-radius: 1rem;
 }
 
+.uploadDivActive{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 15rem;
+    margin-top: 1rem;
+    background-color: #676353;
+    border-radius: 1rem;
+}
+
 .upload{
     justify-content: center;
     align-items: center;

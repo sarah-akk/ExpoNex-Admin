@@ -1,0 +1,80 @@
+/* EditExpo.css */
+
+.edit-expo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .edit-expo-form-container h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #f9c987;
+  }
+  
+  .edit-expo-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+  }
+  
+  .edit-expo-form label {
+    font-weight: bold;
+    margin-top: 15px;
+    display: flex;
+    color: #ece7e7;
+    flex-direction: column;
+  }
+  
+  .edit-expo-form input[type="text"],
+  .edit-expo-form input[type="date"],
+  .edit-expo-form input[type="number"],
+  .edit-expo-form textarea,
+  .edit-expo-form select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
+  .edit-expo-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .edit-expo-form .color-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .edit-expo-form .color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  
+  .edit-expo-form .color-option.selected {
+    border: 2px solid #000;
+  }
+  
+  .edit-expo-form .upload-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  
+  .upload-section img {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  
+ 

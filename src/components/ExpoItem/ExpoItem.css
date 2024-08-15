@@ -81,7 +81,27 @@
 
 .Expo-item-info{
     color: aliceblue;
-    font-size: 10px;
+    font-size: 12px;
     margin-left: 0.4rem;
     margin-right: 0.7rem;
+}
+
+
+.Expo-item-edit{
+    color: rgb(37, 122, 141);
+    background-color: rgba(240, 255, 255, 0.274);
+    border-radius: 10px;
+}
+
+.Expo-item-delete{
+    color: rgb(93, 15, 55);
+    background-color: rgba(240, 255, 255, 0.274);
+    border-radius: 10px;
+
+}
+
+.tools{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

@@ -1,0 +1,45 @@
+.gridContainer {
+    padding: 20px;
+  }
+  
+  
+  
+  .inputSection {
+    margin-bottom: 20px;
+  }
+  
+  .inputSection input {
+    margin-right: 10px;
+    padding: 5px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 5px;
+    margin-bottom: 20px;
+    z-index: 10;
+  }
+  
+  .square {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: #f9f9f9;
+  }
+  
+  .square.selected {
+    background-color: #e7cd6f;
+    color: white;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

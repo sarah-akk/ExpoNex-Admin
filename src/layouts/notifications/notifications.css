@@ -3,7 +3,7 @@
     width: 75%;
     margin: 2rem ;
     margin-top: 8rem;
-    margin-left: 5rem;
+    margin-left: 4rem;
     position:absolute;
 
   }
@@ -13,7 +13,7 @@
     box-shadow: 0 3px 3px rgba(137, 137, 139, 0.685); 
     position: absolute;
     margin-top: 4.3rem;
-    margin-left: 5.5rem;
+    margin-left: 4.5rem;
     width: 74%;
     height: 4rem;
     background-image:linear-gradient(#f0e692,#e4a96b) ;

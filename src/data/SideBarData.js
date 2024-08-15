@@ -1,39 +1,41 @@
 import {
-    UilEstate,
-    UilClipboardAlt,
-    UilUsersAlt,
-    UilPackage,
-    UilChart,
-    UilUsdSquare,
-    UilMoneyWithdrawal,
-  } from "@iconscout/react-unicons";
-  
-  
-  export const SideBarData = [
-    {
-      icon: UilEstate,
-      heading: "Home",
-      link: "/dashboard/Home",
-    },
-    {
-      icon: UilUsersAlt,
-      heading: "Activity",
-      link: "/dashboard/Activity",
-    },
-    {
-      icon: UilUsersAlt,
-      heading: "Companies",
-      link: "/dashboard/Notifications",
-    },
-    {
-      icon: UilUsersAlt,
-      heading: "settings",
-      link: "/dashboard/settings",
-    },
-    {
-      icon: UilUsersAlt,
-      heading: "logout",
-      link: "/dashboard/logout",
-    },
-  ];
-  
+  UilEstate,
+  UilClipboardAlt,
+  UilUsersAlt,
+  UilBuilding,
+  UilSetting,
+  UilSignOutAlt,
+} from "@iconscout/react-unicons";
+
+export const SideBarData = [
+  {
+    icon: UilEstate,
+    heading: "Home",
+    link: "/dashboard/Home",
+  },
+  {
+    icon: UilClipboardAlt,
+    heading: "Activity",
+    link: "/dashboard/Activity",
+  },
+  {
+    icon: UilUsersAlt,
+    heading: "Users",
+    link: "/dashboard/Users",
+  },
+  {
+    icon: UilBuilding,
+    heading: "Notifications",
+    link: "/dashboard/Notifications",
+  },
+  {
+    icon: UilSetting,
+    heading: "Settings",
+    link: "/dashboard/settings",
+  },
+  {
+    icon: UilSignOutAlt,
+    heading: "Logout",
+    link: "/dashboard/logout",
+  },
+];

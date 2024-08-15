@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery, useMutation, useQueryClient } from 'react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { fetchCompanyDetails, fetchDocument, updateCompanyStatus } from '../../util/CompaniesHttp';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
@@ -15,25 +15,21 @@ const CompanyDetails = () => {
   const queryClient = useQueryClient();
 
   // Fetch company details
-  const { data: company, isLoading, isError } = useQuery(
-    ['companyDetails', id],
-    () => fetchCompanyDetails(id, user.accessToken),
-    {
-      staleTime: 60000, // Cache data for 60 seconds
-      retry: 1 // Retry once on failure
-    }
-  );
+  const { data: company, isLoading, isError } = useQuery({
+    queryKey: ['companyDetails', id],
+    queryFn: () => fetchCompanyDetails(id, user.accessToken),
+    staleTime: 60000, // Cache data for 60 seconds
+    retry: 1 // Retry once on failure
+  });
 
   // Mutation for updating company status
-  const mutation = useMutation(
-    () => updateCompanyStatus(id, user.accessToken),
-    {
-      onSuccess: () => {
-        // Invalidate and refetch company details on success
-        queryClient.invalidateQueries(['companyDetails', id]);
-      }
+  const mutation = useMutation({
+    mutationFn: () => updateCompanyStatus(id, user.accessToken),
+    onSuccess: () => {
+      // Invalidate and refetch company details on success
+      queryClient.invalidateQueries(['companyDetails', id]);
     }
-  );
+  });
 
   const handleDocumentDownload = async (docId) => {
     try {

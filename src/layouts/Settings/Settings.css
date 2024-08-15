@@ -1,0 +1,76 @@
+.ExposBG {
+    margin: 2rem;
+    height: 44.5rem;
+    width: 87rem;
+    background-color: #313131;
+    border-radius: 20px;
+    overflow: auto;
+    padding: 20px;
+  }
+  
+  .settings-container {
+    padding: 20px;
+  }
+  
+  .settings-title {
+    color: #f7b98d;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .settings-section {
+    margin-bottom: 2rem;
+  }
+  
+  .settings-subtitle {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .settings-input-group {
+    margin-bottom: 1rem;
+  }
+  
+  .settings-label {
+    color: #fff;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .settings-input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #afadad;
+    border-radius: 7px;
+    background-color: #ffffff42;
+    font-size: 1rem;
+    color: #dfdfdf;
+  }
+  
+  .settings-button-group {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .settings-button {
+    background-color: #fcb14e;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .settings-button:hover {
+    background-color: #a15b22;
+  }
+  
+  .settings-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

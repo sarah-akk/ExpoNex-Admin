@@ -17,19 +17,19 @@ export async function loginUser({ emailValue, passwordValue }) {
   const responseData = await response.json();
   console.log(responseData.status);
   return responseData.status === "success"
-  ? {
+    ? {
       success: true,
       user: {
-        name: responseData.data.name,          
-        email: responseData.data.email,       
-        username: responseData.data.username, 
-        accessToken: responseData.data.access_token, 
-        refreshToken: responseData.data.refresh_token, 
+        name: responseData.data.name,
+        email: responseData.data.email,
+        username: responseData.data.username,
+        accessToken: responseData.data.access_token,
+        refreshToken: responseData.data.refresh_token,
         channelId: responseData.data.channel_id,
         phoneNumber: responseData.data.phone_number
       },
     }
-  : { success: false };
+    : { success: false };
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -59,12 +59,14 @@ const logoutUser = async (token) => {
 
 export const useLogoutMutation = () => {
   const navigate = useNavigate();
-  const { user , setUser } = useAuth();
+  const { user, setUser } = useAuth();
 
   return useMutation({
     mutationFn: () => logoutUser(user.accessToken),
     onSuccess: () => {
       setUser(null);
+      console.error('Logout error:');
+
       navigate("/authentication/sign-in")
     },
     onError: (error) => {
@@ -72,3 +74,29 @@ export const useLogoutMutation = () => {
     }
   });
 };
+
+
+////////////////////////////////////////////////////////////////////////////////////
+
+export async function refreshAccessToken(refreshToken) {
+  const response = await fetch('https://exponex.omranalsamkari.site/api/v1/auth/refresh-token', {
+    method: 'POST',
+    body: JSON.stringify({ refresh_token: refreshToken }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const data = await response.json();
+  if (data.status === 'success') {
+    const newUserData = {
+      ...data.data,
+      accessToken: data.data.access_token,
+      refreshToken: data.data.refresh_token,
+    };
+    localStorage.setItem('authUser', JSON.stringify(newUserData));
+    return newUserData;
+  } else {
+    throw new Error('Token refresh failed');
+  }
+}

@@ -4,7 +4,7 @@
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: hsl(0, 0%, 97%);
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #f5f5f5;
@@ -14,7 +14,7 @@
   .company-details-container h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #ff6600;
+    color: #fcb14e;
     text-align: center;
   }
   
@@ -25,7 +25,7 @@
   }
   
   .company-details-container strong {
-    color: #ff6600;
+    color: #fcb14e;
   }
   
   .company-details-container .status {
@@ -50,7 +50,7 @@
   }
   
   .company-details-container .documents-section h2 {
-    color: #ff6600;
+    color: #fcb14e;
   }
   
   .company-details-container .documents-section ul {
@@ -66,7 +66,7 @@
   
   .company-details-container .documents-section button {
     padding: 10px 20px;
-    background-color: #ff6600;
+    background-color: #de874d;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -76,7 +76,7 @@
   }
   
   .company-details-container .documents-section button:hover {
-    background-color: #e65c00;
+    background-color: #cd8f38;
   }
   
   .company-details-container .documents-section button:disabled {
@@ -92,7 +92,7 @@
   
   .status-change-button {
     padding: 10px 20px;
-    background-color: #ff6600;
+    background-color: #f87721;
     color: #fff;
     border: none;
     border-radius: 8px;

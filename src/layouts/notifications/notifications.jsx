@@ -33,8 +33,8 @@ const Notifications = () => {
       }
       return fetchCompanies(user.accessToken);
     },
-    staleTime: 5 * 60 * 1000, // 5 minutes
-    cacheTime: 10 * 60 * 1000, // 10 minutes
+    staleTime: 5 * 60 * 1000, 
+    cacheTime: 10 * 60 * 1000, 
   });
 
   const handleTabChange = (event, newValue) => {

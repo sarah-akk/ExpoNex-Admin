@@ -44,8 +44,11 @@
     background-color: #e7e7e7;
   }
   
-  .active {
-}
+  .expo-details-nav a.active {
+    background-color: #f2e5c0;
+    color: #d9932b;
+    pointer-events: none; 
+  }
   .expo-details-content {
     padding: 20px;
   }
