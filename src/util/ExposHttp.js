@@ -132,9 +132,20 @@ export const updateExpoDetails = async (token, id, expoData) => {
         }
     });
 
-    formData.append('_method', 'PATCH');
 
-    const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/exhibition/update/${id}`, {
+    formData.append('_method', 'PATCH');
+    formData.append('exhibition_id', id);
+
+    const printFormData = (formData) => {
+        for (const [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`);
+        }
+    };
+
+    printFormData(formData);
+
+
+    const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/exhibition/update`, {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -153,17 +164,22 @@ export const updateExpoDetails = async (token, id, expoData) => {
 // src/api/expoApi.js
 
 export const updateExpoStatus = async (token, exhibitionId, status) => {
+    console.log(token)
+    console.log(exhibitionId)
+    console.log(status)
+
+    const formData = new FormData();
+
+    formData.append('_method', 'PATCH' || '');
+    formData.append('exhibition_id', exhibitionId || '');
+    formData.append('status', status || '');
+
     const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/exhibition/change-state`, {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            _method: 'PATCH',
-            exhibition_id: exhibitionId,
-            status: status,
-        }),
+        body: formData
     });
 
     if (!response.ok) {

@@ -5,7 +5,7 @@ import { fetchCompanyDetails, fetchDocument, updateCompanyStatus } from '../../u
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { useAuth } from '../../context/AuthContext';
-import './CompanyDetails.css'; 
+import './CompanyDetails.css';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import upload from "../../assets/icons/upload.svg";
 
@@ -73,24 +73,32 @@ const CompanyDetails = () => {
         <p className={`status ${company?.data.is_verified ? 'verified' : 'unverified'}`}>
           <strong>Status:</strong> {company?.data.is_verified ? 'Verified' : 'Not Verified'}
         </p>
-        <button 
-          className={`status-change-button ${mutation.isSuccess ? 'success' : mutation.isError ? 'error' : ''}`}
-          onClick={handleStatusChange}
-          disabled={mutation.isLoading}
-        >
-          {mutation.isLoading ? 'Updating...' : 'Change Status'}
-        </button>
+        <div className="status-change-container">
+          <button
+            className={`status-change-button ${mutation.isSuccess ? 'success' : mutation.isError ? 'error' : ''}`}
+            onClick={handleStatusChange}
+            disabled={mutation.isLoading}
+          >
+            {mutation.isLoading ? 'Updating...' : 'Change Status'}
+          </button>
+          {mutation.isLoading && (
+            <Box display="flex" justifyContent="center" alignItems="center" marginTop="10px">
+              <CircularProgress />
+            </Box>
+          )}
+          {mutation.isError && <p>Error updating status.</p>}
+        </div>
         <div className="documents-section">
           <h2>Documents</h2>
           {company?.data.documents_ids.length > 0 ? (
             <ul>
               {company?.data.documents_ids.map((docId) => (
                 <li key={docId}>
-                  <button 
+                  <button
                     onClick={() => handleDocumentDownload(docId)}
                     disabled={false} // Assuming downloading is not a separate async state here
                   >
-                    Document 
+                    Document
                   </button>
                   <img src={upload} alt="Upload Icon" className="upload-icon" />
                 </li>
@@ -99,12 +107,6 @@ const CompanyDetails = () => {
           ) : (
             <p>No documents available.</p>
           )}
-          {mutation.isLoading && (
-            <Box display="flex" justifyContent="center" alignItems="center" marginTop="20px">
-              <CircularProgress />
-            </Box>
-          )}
-          {mutation.isError && <p>Error updating status.</p>}
         </div>
       </div>
     </>

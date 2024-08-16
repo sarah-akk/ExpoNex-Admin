@@ -11,7 +11,9 @@ const GridComponent = () => {
     const [columns, setColumns] = useState(0);
     const [grid, setGrid] = useState([]);
     const [selected, setSelected] = useState([]);
-    const [data, setData] = useState([]);
+    const [price, setPrice] = useState('');
+    const [sections, setSections] = useState([]);
+    const [previousSelections, setPreviousSelections] = useState([]);
 
     const generateGrid = () => {
         const newGrid = [];
@@ -25,34 +27,42 @@ const GridComponent = () => {
         setGrid(newGrid);
     };
 
-    const handleSubmit = (e) => {
+    const handlePriceSubmit = (e) => {
         e.preventDefault();
-        const sections = [];
-        let currentSection = [];
-        grid.forEach(position => {
-            if (selected.includes(position)) {
-                currentSection.push(position);
-            } else if (currentSection.length > 0) {
-                sections.push({ type: 'S', positions: currentSection });
-                currentSection = [];
-            }
-        });
-        if (currentSection.length > 0) {
-            sections.push({ type: 'S', positions: currentSection });
-        }
-        const newData = { data: sections };
-        setData(newData);
 
-        // Update formData with new data
+        // Only proceed if there are selected squares and a price is provided
+        if (selected.length === 0 || !price) {
+            return;
+        }
+
+        // Create a new section with selected positions and current price
+        const newSection = {
+            type: 'S',
+            positions: [...selected],
+            price: parseFloat(price)
+        };
+
+        // Add the new section to the list of sections
+        setSections(prevSections => [...prevSections, newSection]);
+
+        // Update previous selections and clear current selection
+        setPreviousSelections(prevSelections => [...prevSelections, ...selected]);
+        setSelected([]);
+        setPrice('');
+    };
+
+    const handleSubmit = () => {
+        const newData = { data: sections };
+        console.log('Final newData:', JSON.stringify(newData));
+
         setFormData({
             ...formData,
             map: JSON.stringify(newData),
             investor_id: 10,
-            width: rows,
-            height: columns
+            width: columns,
+            height: rows,
         });
 
-        console.log('Form Data after update:', formData);
         navigate('/dashboard/NewExpo/ticket-design');
     };
 
@@ -90,16 +100,38 @@ const GridComponent = () => {
                             <button className="NextButton" onClick={generateGrid}>Generate Grid</button>
                         </div>
 
-                        <div className="grid">
+                        <div
+                            className="grid"
+                            style={{
+                                gridTemplateColumns: `repeat(${columns}, 1fr)`,
+                                gridTemplateRows: `repeat(${rows}, 1fr)`,
+                                gap: '5px'
+                            }}
+                        >
                             {grid.map(position => (
                                 <div
                                     key={position}
-                                    className={`square ${selected.includes(position) ? 'selected' : ''}`}
+                                    className={`square ${selected.includes(position) || previousSelections.includes(position) ? 'selected' : ''}`}
                                     onClick={() => handleSquareClick(position)}
+                                    style={{
+                                        width: `${100 / columns}%`,
+                                        height: `${100 / rows}%`,
+                                        backgroundColor: selected.includes(position) || previousSelections.includes(position) ? 'lightblue' : 'white'
+                                    }}
                                 >
                                     {position}
                                 </div>
                             ))}
+                        </div>
+
+                        <div className="inputSection">
+                            <input
+                                type="number"
+                                placeholder="Price"
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                            />
+                            <button className="submitPriceButton" onClick={handlePriceSubmit}>Submit Price</button>
                         </div>
 
                         <div className="button-group">

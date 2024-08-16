@@ -24,7 +24,6 @@ const DraggableMarker = ({ position, setPosition, onMapDataChange }) => {
       };
       setPosition(coordinates);
       onMapDataChange({
-        location: 'Selected Location',
         coordinates: JSON.stringify(coordinates),
       });
     },

@@ -26,10 +26,6 @@ const ExpoItem = ({ expo }) => {
         }
     };
 
-    const handleDelete = () => {
-        if (window.confirm("Are you sure you want to delete this expo?")) {
-        }
-    };
 
     return (
         <li className="Expo-item">
@@ -37,9 +33,6 @@ const ExpoItem = ({ expo }) => {
                 <div className='tools'>
                     <button onClick={handleEdit} className="Expo-item-edit">
                         <FontAwesomeIcon icon={faEdit} />
-                    </button>
-                    <button onClick={handleDelete} className="Expo-item-delete">
-                        <FontAwesomeIcon icon={faTrash} />
                     </button>
                 </div>
                 <img src={expo.profile_picture} alt="Expo" />

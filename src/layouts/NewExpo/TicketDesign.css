@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: center;
   width: 82%;
-  height: 38rem;
+  height: 42rem;
   padding: 20px;
   background-color: #525151;
   color: #8b8b87;
@@ -27,7 +27,7 @@
 
 .ticket {
   display: flex;
-  height: 50rem;
+  height: 19rem;
   width: 50rem;
   border: 1px solid #ccc;
   overflow: hidden;

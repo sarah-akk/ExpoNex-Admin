@@ -21,7 +21,6 @@ const ExpoDetails = () => {
     queryKey: ['expoDetails', id],
     queryFn: () => fetchExpoDetails(user.accessToken, id),
   });
-
   if (isLoading) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" height="100vh">

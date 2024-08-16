@@ -8,14 +8,15 @@
     height: 34rem;
     width: 21rem;
     margin-right: 2rem;
+   ;
 
 }
 
 .menu{
-    margin-top: 4rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .menuItem{

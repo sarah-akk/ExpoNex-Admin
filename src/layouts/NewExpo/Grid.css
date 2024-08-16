@@ -3,7 +3,6 @@
   }
   
   
-  
   .inputSection {
     margin-bottom: 20px;
   }
@@ -15,15 +14,14 @@
   
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
-    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+    gap: 2px;
     margin-bottom: 20px;
     z-index: 10;
   }
   
   .square {
-    width: 40px;
-    height: 40px;
+    padding: 0.7rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,3 +41,22 @@
     cursor: pointer;
   }
   
+.inputSection {
+  margin-bottom: 20px;
+}
+
+.inputSection input {
+  margin: 0 10px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.submitPriceButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+}

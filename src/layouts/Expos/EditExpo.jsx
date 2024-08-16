@@ -4,12 +4,16 @@ import { updateExpoDetails } from '../../util/ExposHttp';
 import './EditExpo.css';
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { useAuth } from "../../context/AuthContext";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const EditExpo = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { user } = useAuth();
-    const [expo, setExpo] = useState(location.state?.expoDetails || {});
+
+    const [originalExpo, setOriginalExpo] = useState(location.state?.expoDetails.data || {});
+    const [expo, setExpo] = useState({ ...originalExpo });
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (!location.state?.expoDetails) {
@@ -26,13 +30,31 @@ const EditExpo = () => {
         }
     };
 
+    const getUpdatedFields = () => {
+        const updatedFields = {};
+        Object.keys(expo).forEach(key => {
+            if (expo[key] !== originalExpo[key]) {
+                updatedFields[key] = expo[key];
+            }
+        });
+        return updatedFields;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);  // Start loading
         try {
-            await updateExpoDetails(user.accessToken, expo.id, expo);
-            navigate('/dashboard/Activity');
+            const changes = getUpdatedFields();
+            if (Object.keys(changes).length > 0) {
+                await updateExpoDetails(user.accessToken, originalExpo.id, changes);
+                navigate('/dashboard/Activity');
+            } else {
+                console.log('No changes detected.');
+            }
         } catch (error) {
             console.error('Failed to update expo details:', error);
+        } finally {
+            setLoading(false);  // Stop loading
         }
     };
 
@@ -47,8 +69,8 @@ const EditExpo = () => {
                             Name:
                             <input
                                 type="text"
-                                name="name"
-                                value={expo.data.title || ''}
+                                name="title"
+                                value={expo.title || ''}
                                 onChange={handleChange}
                                 className="form-input" />
                         </label>
@@ -57,7 +79,7 @@ const EditExpo = () => {
                             <input
                                 type="date"
                                 name="start_at"
-                                value={expo.data.start_at || ''}
+                                value={expo.start_at || ''}
                                 onChange={handleChange}
                                 className="form-input" />
                         </label>
@@ -66,7 +88,7 @@ const EditExpo = () => {
                             <input
                                 type="date"
                                 name="end_at"
-                                value={expo.data.end_at || ''}
+                                value={expo.end_at || ''}
                                 onChange={handleChange}
                                 className="form-input" />
                         </label>
@@ -75,16 +97,7 @@ const EditExpo = () => {
                             <input
                                 type="text"
                                 name="location"
-                                value={expo.data.location || ''}
-                                onChange={handleChange}
-                                className="form-input" />
-                        </label>
-                        <label className="form-label">
-                            Coordinates:
-                            <input
-                                type="text"
-                                name="coordinates"
-                                value={expo.data.coordinates || ''}
+                                value={expo.location || ''}
                                 onChange={handleChange}
                                 className="form-input" />
                         </label>
@@ -102,7 +115,7 @@ const EditExpo = () => {
                             <input
                                 type="number"
                                 name="ticket_in_place"
-                                value={expo.data.ticket_in_place || ''}
+                                value={expo.ticket_in_place || ''}
                                 onChange={handleChange}
                                 className="form-input" />
                         </label>
@@ -111,7 +124,7 @@ const EditExpo = () => {
                             <input
                                 type="number"
                                 name="ticket_in_virtual_price"
-                                value={expo.data.ticket_in_virtual_price || ''}
+                                value={expo.ticket_in_virtual_price || ''}
                                 onChange={handleChange}
                                 className="form-input" />
                         </label>
@@ -120,7 +133,7 @@ const EditExpo = () => {
                             <input
                                 type="number"
                                 name="ticket_prime"
-                                value={expo.data.ticket_prime || ''}
+                                value={expo.ticket_prime || ''}
                                 onChange={handleChange}
                                 className="form-input" />
                         </label>
@@ -129,7 +142,7 @@ const EditExpo = () => {
                             <input
                                 type="number"
                                 name="ticket_prime_price"
-                                value={expo.data.ticket_prime_price || ''}
+                                value={expo.ticket_prime_price || ''}
                                 onChange={handleChange}
                                 className="form-input" />
                         </label>
@@ -137,74 +150,15 @@ const EditExpo = () => {
                             Description:
                             <textarea
                                 name="description"
-                                value={expo.data.description || ''}
+                                value={expo.description || ''}
                                 onChange={handleChange}
                                 className="form-textarea" />
                         </label>
-                        <label className="form-label">
-                            Ticket Barcode:
-                            <input
-                                type="text"
-                                name="ticket_barcode"
-                                value={expo.data.ticket_barcode || ''}
-                                onChange={handleChange}
-                                className="form-input" />
-                        </label>
-                        <label className="form-label">
-                            Ticket Title:
-                            <input
-                                type="text"
-                                name="ticket_title"
-                                value={expo.data.ticket_title || ''}
-                                onChange={handleChange}
-                                className="form-input" />
-                        </label>
-                        <label className="form-label">
-                            Ticket Description:
-                            <textarea
-                                name="ticket_description"
-                                value={expo.data.ticket_description || ''}
-                                onChange={handleChange}
-                                className="form-textarea" />
-                        </label>
-                        <label className="form-label">
-                            Ticket Side Type:
-                            <input
-                                type="text"
-                                name="ticket_side_type"
-                                value={expo.data.ticket_side_type || ''}
-                                onChange={handleChange}
-                                className="form-input" />
-                        </label>
-                        <label className="form-label">
-                            Ticket Main Type:
-                            <input
-                                type="text"
-                                name="ticket_main_type"
-                                value={expo.data.ticket_main_type || ''}
-                                onChange={handleChange}
-                                className="form-input" />
-                        </label>
-                        <label className="form-label">
-                            Ticket Side Style:
-                            <input
-                                type="text"
-                                name="ticket_side_style"
-                                value={expo.data.ticket_side_style || ''}
-                                onChange={handleChange}
-                                className="form-input" />
-                        </label>
-                        <label className="form-label">
-                            Ticket Main Style:
-                            <input
-                                type="text"
-                                name="ticket_main_style"
-                                value={expo.data.ticket_main_style || ''}
-                                onChange={handleChange}
-                                className="form-input" />
-                        </label>
+
                         <div className="button-group">
-                            <button type="submit" className="nextButton">Save Changes</button>
+                            <button type="submit" className="nextButton" disabled={loading}>
+                                {loading ? <CircularProgress size={24} /> : 'Save Changes'}
+                            </button>
                             <button type="button" className="nextButton"
                                 onClick={() => navigate('/dashboard/Activity')}>Cancel</button>
                         </div>

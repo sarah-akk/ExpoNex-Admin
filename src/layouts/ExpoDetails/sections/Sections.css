@@ -29,7 +29,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(50px, 1fr));
-  gap: 2px;
+  gap: 5px;
   max-width: 50vh;
   max-height: 80vh;
 }
@@ -89,4 +89,8 @@
   font-size: medium;
   color:rgb(85, 70, 38);
   background-image: linear-gradient(#FE8260 , #ffc054);
+}
+
+.section-S {
+  background-color: lightblue;
 }

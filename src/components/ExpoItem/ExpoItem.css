@@ -6,6 +6,7 @@
     overflow: hidden;
     text-align: center;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    position: relative; 
 }
 
 .Expo-item article {
@@ -16,9 +17,8 @@
 }
 
 .Expo-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 18rem;
+    height: 13rem;
 }
 
 .Expo-item h3 {
@@ -91,16 +91,12 @@
     color: rgb(37, 122, 141);
     background-color: rgba(240, 255, 255, 0.274);
     border-radius: 10px;
+    
 }
 
-.Expo-item-delete{
-    color: rgb(93, 15, 55);
-    background-color: rgba(240, 255, 255, 0.274);
-    border-radius: 10px;
-
-}
 
 .tools{
+    position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

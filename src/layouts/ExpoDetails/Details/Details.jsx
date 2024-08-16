@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import location2 from "../../../assets/icons/location2.png";
@@ -9,6 +8,7 @@ import { updateExpoStatus } from "../../../util/ExposHttp";
 const Details = () => {
   const { expo } = useOutletContext();
   const [status, setStatus] = useState(expo.data.status || 'Pending');
+  const [feedback, setFeedback] = useState('');
   const { user } = useAuth();
 
   const {
@@ -32,8 +32,10 @@ const Details = () => {
     setStatus(newStatus);
     try {
       await updateExpoStatus(user.accessToken, expo.data.id, newStatus);
+      setFeedback(`Expo status updated to: ${newStatus}`);
       console.log(`Expo status updated to: ${newStatus}`);
     } catch (error) {
+      setFeedback('Failed to update expo status. Please try again.');
       console.error('Failed to update expo status:', error);
     }
   };
@@ -53,10 +55,11 @@ const Details = () => {
         <div className="expo-status">
           <h3>Change Status</h3>
           <select value={status} onChange={(e) => handleStatusChange(e.target.value)} className="status-dropdown">
-            <option value="Pending">Pending</option>
-            <option value="Active">Active</option>
-            <option value="Completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="active">Active</option>
+            <option value="completed">Completed</option>
           </select>
+          {feedback && <p className="status-feedback">{feedback}</p>}
         </div>
       </div>
 

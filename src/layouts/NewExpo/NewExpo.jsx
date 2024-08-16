@@ -8,17 +8,17 @@ import { useFormData } from '../../context/FormContext';
 const NewExpo = () => {
   const { formData, setFormData } = useFormData();
   const [selectedColor, setSelectedColor] = useState('');
-  const [documents, setDocuments] = useState([]); // New state for documents
+  const [documents, setDocuments] = useState([]);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, type, files, value } = e.target;
     if (type === 'file') {
       if (name === 'documents') {
-        setDocuments(Array.from(files)); // Update documents state
+        setDocuments(Array.from(files));
         setFormData((prevData) => ({
           ...prevData,
-          [name]: Array.from(files), // Store file objects
+          [name]: Array.from(files),
         }));
       } else {
         const file = files[0];

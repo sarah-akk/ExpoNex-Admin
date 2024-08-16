@@ -5,6 +5,7 @@ import {
   UilBuilding,
   UilSetting,
   UilSignOutAlt,
+  UilPackage,
 } from "@iconscout/react-unicons";
 
 export const SideBarData = [
@@ -24,9 +25,19 @@ export const SideBarData = [
     link: "/dashboard/Users",
   },
   {
+    icon: UilClipboardAlt,
+    heading: "Categories",
+    link: "/dashboard/Categories",
+  },
+  {
     icon: UilBuilding,
     heading: "Notifications",
     link: "/dashboard/Notifications",
+  },
+  {
+    icon: UilPackage,
+    heading: "Products & Orders",
+    link: "/dashboard/products",
   },
   {
     icon: UilSetting,

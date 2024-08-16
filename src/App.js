@@ -25,6 +25,8 @@ import Users from './layouts/Users/Users.jsx';
 import RouteGuard from './util/RouteGuard.js';
 import GridComponent from './layouts/NewExpo/Grid.jsx';
 import EditExpo from './layouts/Expos/EditExpo.jsx';
+import Categories from './layouts/Categories/Categories.jsx';
+import Orders from './layouts/Orders/Orders.jsx';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -57,12 +59,16 @@ const router = createBrowserRouter([
       },
       { path: '/dashboard/Activity/:id/edit', element: <EditExpo /> },
       { path: '/dashboard/Users', element: <Users /> },
+      { path: '/dashboard/Categories', element: <Categories /> },
       { path: '/dashboard/Notifications', element: <Notifications /> },
       { path: '/dashboard/Notifications/:id', element: <CompanyDetails /> },
+
       { path: '/dashboard/NewExpo', element: <NewExpo /> },
       { path: '/dashboard/NewExpo/Map', element: <Map /> },
       { path: '/dashboard/NewExpo/Grid', element: <GridComponent /> },
       { path: '/dashboard/NewExpo/ticket-design', element: <TicketDesign /> },
+
+      { path: '/dashboard/products', element: <Orders /> },
       { path: '/dashboard/settings', element: <Settings /> },
       { path: '/dashboard/logout', element: <LogOut /> },
     ],
