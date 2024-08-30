@@ -1,5 +1,5 @@
 export const fetchProducts = async (token) => {
-    const response = await fetch('https://exponex.omranalsamkari.site/api/v1/admin/product/get',
+    const response = await fetch('http://127.0.0.1:8000/api/v1/admin/product/get',
         {
             headers: {
 
@@ -16,7 +16,7 @@ export const fetchProducts = async (token) => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const deleteProduct = async (productId, accessToken) => {
-    const response = await fetch('https://exponex.omranalsamkari.site/api/v1/admin/product/delete', {
+    const response = await fetch('http://127.0.0.1:8000/api/v1/admin/product/delete', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -53,8 +53,11 @@
   }
   
   .userProfilePicture {
-    text-align: center;
-    justify-content: end;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    text-align: ends;
+    justify-content: space-between;
 
   }
   
@@ -65,8 +68,8 @@
   }
   
   .defaultProfilePicture {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background-color: #ddd;
     display: flex;
     align-items: center;
@@ -74,4 +77,16 @@
     border-radius: 50%;
     color: #888;
   }
+  
+
+  .deleteButton{
+    background-color: salmon;
+    height: 3rem;
+  }
+
+  
+  .deleteButton:hover{
+    background-color: rgb(156, 73, 51);
+  }
+
   

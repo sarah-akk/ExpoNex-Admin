@@ -195,8 +195,7 @@ const TicketDesign = () => {
                 Title:
                 <input
                   type="text"
-                  name="title"
-                  className="title"
+                  name="title2"
                   value={ticketData.title}
                   onChange={handleInputChange}
                   placeholder='not exceed 127 characters'

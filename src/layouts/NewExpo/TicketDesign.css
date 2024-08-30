@@ -8,6 +8,7 @@
   width: 87rem;
   background-color: #313131;
   border-radius: 20px;
+  color: #434242;
 }
 
 .expoForm2 {
@@ -31,6 +32,7 @@
   width: 50rem;
   border: 1px solid #ccc;
   overflow: hidden;
+  color: #434242;
 }
 
 .ticket-image-container {
@@ -70,6 +72,7 @@
   margin-top: 10px;
   justify-content: center;
   align-items: center;
+  color: #434242;
 }
 
 .ticket-barcode {

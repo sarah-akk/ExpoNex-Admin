@@ -2,7 +2,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 export const fetchCategories = async (authToken) => {
     try {
-        const response = await fetch('https://exponex.omranalsamkari.site/api/v1/admin/category/get', {
+        const response = await fetch('http://127.0.0.1:8000/api/v1/admin/category/get', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${authToken}`,
@@ -33,7 +33,7 @@ export const useCategories = (token) => {
 
 export const deleteCategory = async (authToken, id) => {
     try {
-        const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/category/delete`, {
+        const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/category/delete`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${authToken}`,
@@ -69,7 +69,7 @@ export const useDeleteCategory = () => {
 export const addCategory = async (authToken, category) => {
     console.log(category)
     try {
-        const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/category/create`, {
+        const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/category/create`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${authToken}`,
@@ -97,7 +97,7 @@ export const addCategory = async (authToken, category) => {
 
 export const updateCategory = async (authToken, category) => {
     try {
-        const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/category/update`, {
+        const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/category/update`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${authToken}`,

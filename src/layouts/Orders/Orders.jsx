@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { fetchProducts, deleteProduct } from '../../util/ProductsHttp';
-import { useAuth } from "../../context/AuthContext";
-import SearchBar from "../../components/SearchBar/SearchBar";
 import CircularProgress from '@mui/material/CircularProgress';
-import './Orders.css';
 import { AiOutlineLeft, AiOutlineRight, AiOutlineDelete } from 'react-icons/ai';
+import './Orders.css';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import laptop from "../../assets/images/laptop.jpeg"
+import phone from "../../assets/images/phone.jpg"
+import lego from "../../assets/images/lego.jpeg"
+import lego2 from "../../assets/images/lego2.jpg"
+import cheps from "../../assets/images/cheps.jpeg"
+import shoe from "../../assets/images/shoe.jpg"
+import shirt from "../../assets/images/shirt.webp"
+import artPiece from "../../assets/images/artPiece.jpg"
 
 const Orders = () => {
     const [loadingImage, setLoadingImage] = useState(null);
@@ -13,24 +18,66 @@ const Orders = () => {
     const [showModal, setShowModal] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState({});
 
-    const { user } = useAuth();
-    const queryClient = useQueryClient();
-    const { data, isLoading, isError } =
-        useQuery({
-            queryKey: ['Products', user.accessToken],
-            queryFn: () => fetchProducts(user.accessToken)
-        });
-
-    const mutation = useMutation({
-        mutationFn: (productId) => deleteProduct(productId, user.accessToken),
-        onSuccess: () => {
-            queryClient.invalidateQueries(['Products', user.accessToken]);
-            setShowModal(false);
+    const staticData = [
+        {
+            id: 1,
+            title: 'Art Piece',
+            price: 100,
+            company: { name: 'Company A' },
+            pictures: [artPiece, 'https://via.placeholder.com/150/0000FF'],
         },
-        onError: () => {
-            setShowModal(false);
-        }
-    });
+        {
+            id: 2,
+            title: 'nike shoes',
+            price: 200,
+            company: { name: 'Company B' },
+            pictures: [shoe, 'https://via.placeholder.com/150/FF0000'],
+        },
+        {
+            id: 3,
+            title: 'modern laptop',
+            price: 300,
+            company: { name: 'Company C' },
+            pictures: [laptop, 'https://via.placeholder.com/150/00FF00'],
+        },
+        {
+            id: 4,
+            title: 'Lego',
+            price: 300,
+            company: { name: 'Company C' },
+            pictures: [lego, 'https://via.placeholder.com/150/00FF00'],
+        },
+        {
+            id: 5,
+            title: 'cheps',
+            price: 300,
+            company: { name: 'Company C' },
+            pictures: [cheps, 'https://via.placeholder.com/150/00FF00'],
+        },
+        {
+            id: 6,
+            title: 'shirt',
+            price: 300,
+            company: { name: 'Company C' },
+            pictures: [shirt, 'https://via.placeholder.com/150/00FF00'],
+        },
+        {
+            id: 7,
+            title: 'Anime lego',
+            price: 300,
+            company: { name: 'Company C' },
+            pictures: [lego2, 'https://via.placeholder.com/150/00FF00'],
+        },
+
+        {
+            id: 8,
+            title: 'modern phone',
+            price: 300,
+            company: { name: 'Company C' },
+            pictures: [phone, 'https://via.placeholder.com/150/00FF00'],
+        },
+
+    ];
 
     const handleDelete = (productId) => {
         setDeleteProductId(productId);
@@ -39,15 +86,10 @@ const Orders = () => {
 
     const confirmDelete = () => {
         if (deleteProductId) {
-            mutation.mutate(deleteProductId);
+            console.log(`Deleted product with id: ${deleteProductId}`);
+            setShowModal(false);
         }
     };
-
-
-    if (isLoading) return <div><CircularProgress /> Loading...</div>;
-    if (isError) return <div>Error fetching products</div>;
-
-
 
     const handleImageLoad = (productId) => {
         setLoadingImage(null);
@@ -71,21 +113,18 @@ const Orders = () => {
         }));
     };
 
-
-    if (isLoading) return <div><CircularProgress /> Loading...</div>;
-    if (isError) return <div>Error fetching products</div>;
-
     return (
         <>
             <SearchBar />
+
             <div className='ExposBG'>
                 <h1 className="title">All Products:</h1>
                 <div className="orders-container">
-                    {data.length === 0 ? (
+                    {staticData.length === 0 ? (
                         <div>No products available</div>
                     ) : (
                         <div className="products-grid">
-                            {data.data.map(product => {
+                            {staticData.map(product => {
                                 const currentImageIdx = currentImageIndex[product.id] ?? 0;
                                 const imagesLength = product.pictures.length;
                                 const isLoading = loadingImage === product.id;
@@ -144,7 +183,7 @@ const Orders = () => {
                     <div className="modal-overlay">
                         <div className="modal-actions">
                             <button onClick={confirmDelete} className="confirm-button">
-                                {mutation.isLoading ? <CircularProgress size={24} /> : 'Yes, Delete'}
+                                Confirm Delete
                             </button>
                             <button onClick={() => setShowModal(false)} className="cancel-button">
                                 Cancel

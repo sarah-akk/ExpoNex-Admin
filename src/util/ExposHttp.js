@@ -58,7 +58,7 @@ export const CreateExpo = async (token, ExpoData) => {
     printFormData(formData);
 
     try {
-        const response = await fetch('https://exponex.omranalsamkari.site/api/v1/admin/exhibition/create', {
+        const response = await fetch('http://127.0.0.1:8000/api/v1/admin/exhibition/create', {
             method: 'POST',
 
             headers: {
@@ -89,7 +89,7 @@ export const CreateExpo = async (token, ExpoData) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const fetchExpos = async (token) => {
-    const response = await fetch('https://exponex.omranalsamkari.site/api/v1/admin/exhibition/get',
+    const response = await fetch('http://127.0.0.1:8000/api/v1/admin/exhibition/get',
         {
             headers: {
 
@@ -107,7 +107,7 @@ export const fetchExpos = async (token) => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const fetchExpoDetails = async (token, id) => {
-    const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/exhibition/get/${id}`,
+    const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/exhibition/get/${id}`,
         {
             headers: {
 
@@ -145,7 +145,7 @@ export const updateExpoDetails = async (token, id, expoData) => {
     printFormData(formData);
 
 
-    const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/exhibition/update`, {
+    const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/exhibition/update`, {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -174,7 +174,7 @@ export const updateExpoStatus = async (token, exhibitionId, status) => {
     formData.append('exhibition_id', exhibitionId || '');
     formData.append('status', status || '');
 
-    const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/exhibition/change-state`, {
+    const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/exhibition/change-state`, {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,

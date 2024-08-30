@@ -58,7 +58,7 @@ const GridComponent = () => {
         setFormData({
             ...formData,
             map: JSON.stringify(newData),
-            investor_id: 10,
+            investor_id: 3,
             width: columns,
             height: rows,
         });
@@ -116,7 +116,8 @@ const GridComponent = () => {
                                     style={{
                                         width: `${100 / columns}%`,
                                         height: `${100 / rows}%`,
-                                        backgroundColor: selected.includes(position) || previousSelections.includes(position) ? 'lightblue' : 'white'
+                                        backgroundColor: selected.includes(position) || previousSelections.includes(position) ? 'gold' : 'white',
+                                        color: 'black'
                                     }}
                                 >
                                     {position}

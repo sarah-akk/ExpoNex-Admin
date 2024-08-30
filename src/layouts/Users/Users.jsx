@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import { useQuery } from '@tanstack/react-query';
-import { fetchUsers } from '../../util/UsersHttp';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { fetchUsers, deleteUser } from '../../util/UsersHttp';
 import './Users.css';
 import { useAuth } from "../../context/AuthContext";
 import CircularProgress from '@mui/material/CircularProgress';
@@ -11,14 +11,30 @@ const Users = () => {
   const { user } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
 
+  const queryClient = useQueryClient();
+
   const { data, isLoading, error } = useQuery({
     queryKey: ['users', user.accessToken],
     queryFn: () => fetchUsers(user.accessToken),
-    staleTime: 1000 * 60 * 5, 
+    staleTime: 1000 * 60 * 5,
+  });
+
+  const mutation = useMutation({
+    mutationFn: (userId) => deleteUser(userId, user.accessToken),
+    onSuccess: () => {
+      queryClient.invalidateQueries(['users', user.accessToken]);
+    },
+    onError: (error) => {
+      console.error('Error deleting user:', error);
+    },
   });
 
   const handleSearch = (query) => {
     setSearchQuery(query);
+  };
+
+  const handleDelete = (userId) => {
+    mutation.mutate(userId);
   };
 
   if (isLoading) {
@@ -28,7 +44,7 @@ const Users = () => {
       </Box>
     );
   }
-    if (error) return <div>Failed to fetch users</div>;
+  if (error) return <div>Failed to fetch users</div>;
 
   const filteredUsers = data.data.filter(user =>
     user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -38,10 +54,10 @@ const Users = () => {
 
   return (
     <div>
-  <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} />
 
       <div className='ExposBG'>
-      <h1 className="ExposTitle">All Users</h1>
+        <h1 className="ExposTitle">All Users</h1>
         <div className='usersContainer'>
           {filteredUsers.length > 0 ? (
             filteredUsers.map(user => (
@@ -63,7 +79,14 @@ const Users = () => {
                   ) : (
                     <div className='defaultProfilePicture'>No Image</div>
                   )}
+                  <button
+                    className='deleteButton'
+                    onClick={() => handleDelete(user.id)}
+                  >
+                    Delete
+                  </button>
                 </div>
+
               </div>
             ))
           ) : (

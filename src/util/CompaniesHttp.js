@@ -2,7 +2,7 @@
 export const fetchPending = async (authToken) => {
   console.log(authToken);
   try {
-    const response = await fetch('https://exponex.omranalsamkari.site/api/v1/admin/company/get/pending', {
+    const response = await fetch('http://127.0.0.1:8000/api/v1/admin/company/get/need-approval', {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${authToken}`,
@@ -27,7 +27,7 @@ export const fetchPending = async (authToken) => {
 export const fetchCompanies = async (authToken) => {
   console.log(authToken);
   try {
-    const response = await fetch('https://exponex.omranalsamkari.site/api/v1/admin/company/get', {
+    const response = await fetch('http://127.0.0.1:8000/api/v1/admin/company/get', {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${authToken}`,
@@ -52,7 +52,7 @@ export const fetchCompanies = async (authToken) => {
 // src/util/CompaniesHttp.js
 export const fetchCompanyDetails = async (id, authToken) => {
   try {
-    const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/company/get/${id}`, {
+    const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/company/get/${id}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${authToken}`,
@@ -76,7 +76,7 @@ export const fetchCompanyDetails = async (id, authToken) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const fetchDocument = async (docId, token) => {
-  const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/document/download/${docId}`, {
+  const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/document/download/${docId}`, {
     headers: {
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/pdf'
@@ -101,7 +101,7 @@ export const updateCompanyStatus = async (companyId, token) => {
   formData.append('verified', 1);
   formData.append('pending', 0);
 
-  const response = await fetch(`https://exponex.omranalsamkari.site/api/v1/admin/company/change-state`, {
+  const response = await fetch(`http://127.0.0.1:8000/api/v1/admin/company/change-state`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,

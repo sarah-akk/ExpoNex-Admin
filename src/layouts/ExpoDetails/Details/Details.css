@@ -2,17 +2,16 @@
 .expo-details-div {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     padding: 20px;
     margin-left: 5rem;
   }
   
   .expo-header {
     display: flex;
-    gap: 20px;
     align-items: start;
     justify-content: start;
-    gap: 10rem
+    gap: 5rem
   }
   
   .expo-details-image {
@@ -74,6 +73,7 @@
 
   .status-dropdown {
     border: 1px solid #ccc;
+    color: #d6d364;
     border-radius: 4px;
     font-size: 16px;
     ;

@@ -70,6 +70,7 @@
   margin-bottom: 40px;
   color: rgb(246, 167, 147);
   font-size: 25px;
+  margin-left: 4rem;
 
 }
 
@@ -82,6 +83,7 @@
 .details-sidebarInfo {
   padding: 20px;
   margin-top: 2rem;
+  margin-left: 4rem;
   font-size: 35px;
   width: 16rem;
   border-radius: 20px;

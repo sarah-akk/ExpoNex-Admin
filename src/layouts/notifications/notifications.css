@@ -73,7 +73,7 @@
   }
   
   /* Approved status */
-  .notification-table .status-approved {
+  .notification-table .status-verified {
     color: #31a131; /* green */
     font-weight: bold;
   }

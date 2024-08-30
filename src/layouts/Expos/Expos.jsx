@@ -29,7 +29,7 @@ const Expos = () => {
       <SearchBar />
       <div className='ExposBG'>
         <div className="ExposTitle">
-          Running Expos:
+          All Expos:
         </div>
         <ul id="Expos">
           {data.data.map((expo) => (
